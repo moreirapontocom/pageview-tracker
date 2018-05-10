@@ -10,9 +10,16 @@
 
         <br><br>
 
-        <strong>Copy/Paste this line into all pages you'd like to track:</strong> <code>&lt;img src="{{ projectUrl }}/tracking/{{ site.tracking_code }}"&gt;</code>
-        <br>
-        <strong>Or add this image into your e-mail marketing app:</strong> <code>{{ projectUrl }}/tracking/{{ site.tracking_code }}</code>
+        <strong>Copy/Paste this script into all pages (on footer) you'd like to track:</strong>
+        <br><br>
+        <code>
+&lt;script&gt;<br>
+&nbsp;&nbsp; var script = document.createElement('script');<br>
+&nbsp;&nbsp; script.src="{{ projectUrl }}/tracking.js";<br>
+&nbsp;&nbsp; script.id="{{ site.tracking_code }}";<br>
+&nbsp;&nbsp; document.getElementsByTagName('head')[0].appendChild(script);<br>
+&lt;/script&gt;
+        </code>
 
         <div class="uk-divider-icon"></div>
 
@@ -24,7 +31,6 @@
                     <th>IP</th>
                     <th>Session</th>
                     <th>Page</th>
-                    <th>Referer</th>
                     <th>Timestamp</th>
                 </tr>
             </thead>
@@ -33,7 +39,6 @@
                 <tr v-for="pv in site.pageviews.pageviews">
                     <td>{{ pv.viewer_ip }}</td>
                     <td>{{ pv.viewer_session }}</td>
-                    <td>{{ pv.page }}</td>
                     <td>{{ pv.referal }}</td>
                     <td>{{ pv.created_at }}</td>
                 </tr>

@@ -31,8 +31,6 @@
             @yield('content')
         </div>
 
-        <img src="https://webfoco.app/tracking/ee011">
-
         <footer>
             &copy; lucasmoreira.com.br
         </footer>
@@ -41,5 +39,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
     <script src="{{ mix('js/app.js') }}"></script>
+
+    <script>
+    var script = document.createElement('script');
+    script.src="https://webfoco.app/tracking.js";
+    script.id="dd251";
+    document.getElementsByTagName('head')[0].appendChild(script);
+    </script> 
 </body>
 </html>

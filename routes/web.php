@@ -15,7 +15,7 @@ Route::get('/', function() {
     return redirect('sites');
 });
 
-Route::get('tracking/{trackingCode}', 'SiteController@track');
+Route::get('tracking/{trackingCode}/{url}', 'SiteController@track');
 
 Route::group(['prefix' => 'sites'], function() {
     Route::get('/', 'SiteController@index');

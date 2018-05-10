@@ -19,5 +19,6 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'sites'], function() {
     Route::get('/', 'Api\SiteController@index');
+    Route::get('{siteId}', 'Api\SiteController@getSite');
     Route::post('create', 'Api\SiteController@create');
 });

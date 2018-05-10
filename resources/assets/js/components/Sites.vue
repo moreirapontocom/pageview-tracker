@@ -27,7 +27,7 @@
                         </p>
                     </td>
                     <td class="uk-text-right">
-                        <a :href="'/sites/' + site.tracking_code" class="uk-button uk-button-primary">Open website &rarr;</a>
+                        <a :href="'/sites/' + site.id" class="uk-button uk-button-primary">Open website &rarr;</a>
                     </td>
                 </tr>
             </tbody>
@@ -40,7 +40,7 @@
     export default {
         data() {
             return {
-                endpoint: 'api',
+                endpoint: '/api',
                 newSiteUrl: '',
                 sites: []
             }

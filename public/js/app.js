@@ -13892,6 +13892,7 @@ window.Vue = __webpack_require__(36);
  */
 
 Vue.component('sites', __webpack_require__(39));
+Vue.component('site', __webpack_require__(48));
 
 var app = new Vue({
   el: '#app'
@@ -47353,7 +47354,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            endpoint: 'api',
+            endpoint: '/api',
             newSiteUrl: '',
             sites: []
         };
@@ -47467,7 +47468,7 @@ var render = function() {
                 "a",
                 {
                   staticClass: "uk-button uk-button-primary",
-                  attrs: { href: "/sites/" + site.tracking_code }
+                  attrs: { href: "/sites/" + site.id }
                 },
                 [_vm._v("Open website →")]
               )
@@ -47502,6 +47503,254 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(49)
+/* template */
+var __vue_template__ = __webpack_require__(50)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Site.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-11b5847e", Component.options)
+  } else {
+    hotAPI.reload("data-v-11b5847e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['appUrl', 'siteId'],
+
+    data: function data() {
+        return {
+            endpoint: '/api',
+            projectUrl: this.$attrs.appurl,
+            site: _defineProperty({
+                created_at: '',
+                id: '',
+                pageviews: '',
+                tracking_code: '',
+                updated_at: '',
+                url: ''
+            }, 'pageviews', [])
+        };
+    },
+    created: function created() {
+        this.fetchSite(this.$attrs.siteid);
+    },
+
+
+    methods: {
+        fetchSite: function fetchSite(siteId) {
+            var _this = this;
+
+            axios.get(this.endpoint + '/sites/' + siteId).then(function (_ref) {
+                var data = _ref.data;
+
+                if (data.status == 'success') {
+                    _this.site = data.site;
+                } else UIkit.notification('Error on fetching site infos.');
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("a", { attrs: { href: "/sites" } }, [_vm._v("← back to my websites")]),
+    _vm._v(" "),
+    _c("br"),
+    _c("br"),
+    _vm._v(" "),
+    _c("h2", [
+      _vm._v("Report for "),
+      _c("strong", [_vm._v(_vm._s(_vm.site.url))])
+    ]),
+    _vm._v(" "),
+    _c("a", { attrs: { href: _vm.site.url, target: "_blank" } }, [
+      _vm._v(_vm._s(_vm.site.url))
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _c("br"),
+    _vm._v(" "),
+    _c("strong", [
+      _vm._v("Copy/Paste this line into all pages you'd like to track:")
+    ]),
+    _vm._v(" "),
+    _c("code", [
+      _vm._v(
+        '<img src="' +
+          _vm._s(_vm.projectUrl) +
+          "/tracking/" +
+          _vm._s(_vm.site.tracking_code) +
+          '">'
+      )
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("strong", [_vm._v("Or add this image into your e-mail marketing app:")]),
+    _vm._v(" "),
+    _c("code", [
+      _vm._v(
+        _vm._s(_vm.projectUrl) + "/tracking/" + _vm._s(_vm.site.tracking_code)
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "uk-divider-icon" }),
+    _vm._v(" "),
+    _c("h3", [_vm._v("Pageviews")]),
+    _vm._v(" "),
+    _c("table", { staticClass: "uk-table uk-table-striped" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.site.pageviews.pageviews, function(pv) {
+          return _c("tr", [
+            _c("td", [_vm._v(_vm._s(pv.viewer_ip))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pv.viewer_session))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pv.page))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pv.referal))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(pv.created_at))])
+          ])
+        })
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("IP")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Session")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Page")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Referer")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Timestamp")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-11b5847e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

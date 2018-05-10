@@ -21,9 +21,14 @@ class SiteController extends Controller
 
     public static function getSite($siteId)
     {
+        $site = Site::find($siteId);
+
+        if (!empty($site))
+            $site->pageviews = PageviewController::getPageviewsFromWebsite($siteId);
+
         return [
             'status' => 'success',
-            'site' => Site::find($siteId)
+            'site' => $site
         ];
     }
 

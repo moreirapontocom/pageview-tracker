@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/', 'SiteController@index');
+Route::get('/', function() {
+    return redirect('sites');
+});
+Route::get('sites', 'SiteController@index');

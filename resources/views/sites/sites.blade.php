@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h2>Meus sites</h2>
+    <h2>Sites</h2>
 
-    <hr>
+    <br>
 
     <sites></sites>
 

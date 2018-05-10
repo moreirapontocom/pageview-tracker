@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sites Tracking for WebFoco - SP</title>
+    <title>Pageview Tracking</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
@@ -17,6 +17,11 @@
             height: 100vh;
             margin: 0;
         }
+        footer {
+            margin: 50px 0;
+            text-align: center;
+            font-size: .9rem;
+        }
     </style>
 </head>
 <body>
@@ -27,6 +32,10 @@
         </div>
 
         <img src="https://webfoco.app/tracking/ee011">
+
+        <footer>
+            &copy; lucasmoreira.com.br
+        </footer>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
